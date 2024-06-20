@@ -18,7 +18,6 @@ require "log"
 require "ecr"
 
 module CNFManager
-
   class ElapsedTimeConfigMapTemplate
     # elapsed_time should be Int32 but it is being passed as string
     # So the old behaviour has been retained as is to prevent any breakages
@@ -750,6 +749,7 @@ module CNFManager
       config = CNFManager::Config.parse_config_yml(CNFManager.ensure_cnf_testsuite_yml_path(config_file))
       tgz_name = get_tgz_name(helm_chart)
     end
+
     Log.info { "tgz_name: #{tgz_name}" }
 
     TarClient.untar(tgz_name, "#{destination_cnf_dir}/exported_chart")
@@ -1268,20 +1268,24 @@ module CNFManager
   end
 
   def self.tgz_files(helm_chart)
-    Dir.glob("#{Helm.chart_name(helm_chart)}-*.tgz")
+    Dir.glob(helm_tgz_expression(helm_chart))
   end
 
   def self.get_tgz_name(helm_chart)
     tgz_files = tgz_files(helm_chart)
     
     if tgz_files.empty?
-      Log.error { "No .tgz files found for #{Helm.chart_name(helm_chart)}-*.tgz" }
+      Log.error { "No .tgz files found for #{helm_tgz_expression(helm_chart)}" }
       raise TarFileNotFoundError.new(Helm.chart_name(helm_chart))
     elsif tgz_files.size > 1
-      Log.info { "Multiple .tgz files found: #{tgz_files.join(", ")}" }
+      Log.warn { "Multiple .tgz files found: #{tgz_files.join(", ")}" }
     end
   
     tgz_files.first
+  end
+
+  def self.helm_tgz_expression(helm_chart)
+    "#{Helm.chart_name(helm_chart)}-*.tgz"
   end
 
   class HelmDirectoryMissingError < Exception
