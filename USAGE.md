@@ -320,21 +320,6 @@ Ensure that your CNF is compatible with Calico, Cilium and other available CNIs.
 
 
 
-## [Kubernetes Alpha APIs](docs/LIST_OF_TESTS.md#kubernetes-alpha-apis---proof-of-concept)
-
-##### To run the Kubernetes Alpha APIs test, you can use the following command:
-```
-./cnf-testsuite alpha_k8s_apis
-```
-
-<b>Remediation for failing this test:</b> 
-
-Make sure your CNFs are not utilizing any Kubernetes alpha APIs. You can learn more about Kubernetes API versioning [here](https://bit.ly/k8s_api).
-
-</b>
-
-
-
 <details> <summary>Details for Compatibility, Installability and Upgradability Tests To Do's</summary>
 <p>
 
@@ -342,18 +327,6 @@ Make sure your CNFs are not utilizing any Kubernetes alpha APIs. You can learn m
 
 ```
 crystal src/cnf-testsuite.cr cni_spec
-```
-
-#### :memo: (To Do) To check for the use of beta K8s API endpoints
-
-```
-crystal src/cnf-testsuite.cr api_snoop_beta
-```
-
-#### :memo: (To Do) To check for the use of generally available (GA) K8s API endpoints
-
-```
-crystal src/cnf-testsuite.cr api_snoop_general_apis
 ```
 
 #### :memo: (To Do) To test small scale autoscaling
@@ -1243,6 +1216,38 @@ Remove any sensitive data stored in configmaps, environment variables and instea
 <b>Remediation for failing this test:</b> 
 Use immutable configmaps for any non-mutable configuration data.
 </b>
+
+
+
+## [Kubernetes Alpha APIs](docs/LIST_OF_TESTS.md#kubernetes-alpha-apis---proof-of-concept)
+
+##### To run the Kubernetes Alpha APIs test, you can use the following command:
+```
+./cnf-testsuite alpha_k8s_apis
+```
+
+<b>Remediation for failing this test:</b>
+
+Make sure your CNFs are not utilizing any Kubernetes alpha APIs. You can learn more about Kubernetes API versioning [here](https://bit.ly/k8s_api).
+
+</b>
+
+<details> <summary>Details for Configuration Tests To Do's</summary>
+<p>
+#### :memo: (To Do) To check for the use of beta K8s API endpoints
+
+```
+crystal src/cnf-testsuite.cr api_snoop_beta
+```
+
+#### :memo: (To Do) To check for the use of generally available (GA) K8s API endpoints
+
+```
+crystal src/cnf-testsuite.cr api_snoop_general_apis
+```
+</p>
+</details>
+
 
 # 5g Tests
 

@@ -42,10 +42,6 @@ immutable infrastructure and declarative specifications.
 #### *To check if the CNF is compatible with different CNIs*: [cni_compatibility](docs/LIST_OF_TESTS.md#cni-compatible)
 > A CNF should be runnable by any CNI that adheres to the [CNI specification](https://github.com/containernetworking/cni/blob/master/SPEC.md)
 
-#### *[POC] To check if a CNF uses Kubernetes alpha APIs 'alpha_k8s_apis'*: [alpha_k8s_apis](docs/LIST_OF_TESTS.md#kubernetes-alpha-apis---proof-of-concept)
-
-> If a CNF uses alpha or undocumented APIs, the CNF is tightly coupled to an unstable platform
-
 ## Microservice Tests 
 
 #### [Good microservice practices](https://vmblog.com/archive/2022/01/04/the-zeitgeist-of-cloud-native-microservices.aspx) promote agility which means less time will occur between deployments.  One benefit of more agility is it allows for different organizations and teams to deploy at the rate of change that they build out features, instead of deploying in lock step with other teams. This is very important when it comes to changes that are time sensitive like security patches.
@@ -342,6 +338,8 @@ to their data has the following advantages:*
 - *improves performance of your cluster by significantly reducing load on kube-apiserver, by 
 closing watches for ConfigMaps marked as immutable.*"
 
+#### *[POC] To check if a CNF uses Kubernetes alpha APIs 'alpha_k8s_apis'*: [alpha_k8s_apis](docs/LIST_OF_TESTS.md#kubernetes-alpha-apis---proof-of-concept)
+> If a CNF uses alpha or undocumented APIs, the CNF is tightly coupled to an unstable platform
 
 ## 5g Tests 
 ####  A 5g core is an important part of the service provider's telecommuncations offering. A cloud native 5g architecture uses immutable infrastructure, declarative configuration, and microservices when creating and hosting 5g cloud native network functions.

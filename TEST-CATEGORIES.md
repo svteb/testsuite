@@ -8,10 +8,6 @@ The CNTI Test Catalog validates interoperability of CNF **workloads** supplied b
 
 #### On workloads:
 
-- Performing K8s API usage testing by running [API snoop](https://github.com/cncf/apisnoop) on the cluster which:
-  - Checks alpha endpoint usage
-  - Checks beta endpoint usage
-  - Checks generally available (GA) endpoint usage
 - Test increasing/decreasing capacity
 - Test small scale autoscaling with kubectl
 - Test large scale autoscaling with load test tools like [CNF Testbed](https://github.com/cncf/cnf-testbed)
@@ -118,6 +114,9 @@ The CNTI Test Catalog validates interoperability of CNF **workloads** supplied b
 - Tests hostport is not used.
 - Checks for secrets used or configured.
 - Tests immutable configmaps.
-
+- Performing K8s API usage testing by running [API snoop](https://github.com/cncf/apisnoop) on the cluster which:
+  - Checks alpha endpoint usage
+  - Checks beta endpoint usage
+  - Checks generally available (GA) endpoint usage
 
 Tools to study/use for such testing methodology: The previously mentioned Pumba and Blocade, [ChaosMesh](https://github.com/pingcap/chaos-mesh), [Mitmproxy](https://github.com/mitmproxy/mitmproxy/), Istio for "[Network Resilience](https://istio.io/docs/concepts/traffic-management/#network-resilience-and-testing)", kill -STOP -CONT, [LimitCPU](http://limitcpu.sourceforge.net/), [Packet pROcessing eXecution (PROX) engine](https://wiki.opnfv.org/pages/viewpage.action?pageId=12387840) as [Impair Gateway](https://github.com/opnfv/samplevnf/blob/master/VNFs/DPPD-PROX/helper-scripts/rapid/impair.cfg).

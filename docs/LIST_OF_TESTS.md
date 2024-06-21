@@ -141,16 +141,6 @@ You can read more about horizonal pod autoscaling to create replicas [here](http
 
 
 
-## [Kubernetes Alpha APIs - Proof of Concept](https://github.com/cnti-testcatalog/testsuite/blob/v0.27.0/src/tasks/workload/configuration.cr#L499)
-- Expectation: CNF should not use Kubernetes alpha APIs
-
-**What's tested:** This checks if a CNF uses alpha or unstable versions of Kubernetes APIs
-
-[**Usage**](../USAGE.md#kubernetes-alpha-apis)
-
-[**Rationale & Reasoning**](../RATIONALE.md#poc-to-check-if-a-cnf-uses-kubernetes-alpha-apis-alpha_k8s_apis-alpha_k8s_apis)
-
-
 # Microservice Category
 
 ## [Reasonable image size](https://github.com/cnti-testcatalog/testsuite/blob/v0.27.0/src/tasks/workload/microservice.cr#L200)
@@ -711,6 +701,16 @@ Read more at [ARMO-C0045](https://bit.ly/3EvltIL)
 [**Usage**](../USAGE.md#immutable-configmaps)
 
 [**Rationale & Reasoning**](../RATIONALE.md#to-check-if-a-cnf-version-uses-immutable-configmaps-immutable_configmap)
+
+
+## [Kubernetes Alpha APIs - Proof of Concept](https://github.com/cnti-testcatalog/testsuite/blob/v0.27.0/src/tasks/workload/configuration.cr#L499)
+- Expectation: CNF should not use Kubernetes alpha APIs
+
+**What's tested:** This checks if a CNF uses alpha or unstable versions of Kubernetes APIs
+
+[**Usage**](../USAGE.md#kubernetes-alpha-apis)
+
+[**Rationale & Reasoning**](../RATIONALE.md#poc-to-check-if-a-cnf-uses-kubernetes-alpha-apis-alpha_k8s_apis-alpha_k8s_apis)
 
 
 # 5g Category
