@@ -858,7 +858,7 @@ module CNFManager
       Log.info { "baselines: #{baselines}" }
     end
     # todo start tshark monitoring the e2 traffic 
-    tshark_log_name = ORANMonitor.start_e2_capture?(config.cnf_config)
+    capture = ORANMonitor.start_e2_capture?(config.cnf_config)
 
     # todo separate out install methods into a module/function that accepts a block
     liveness_time = 0
@@ -1055,7 +1055,7 @@ module CNFManager
     end
     if ORANMonitor.isCNFaRIC?(config.cnf_config)
       sleep 30 
-      e2_found = ORANMonitor.e2_session_established?(tshark_log_name)
+      e2_found = ORANMonitor.e2_session_established?(capture.not_nil!)
     else
       e2_found = false
     end
